@@ -1,0 +1,15 @@
+{
+  "name": "api",
+  "version": "0.0.1",
+  "description": "API for f3TW",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Assaf Sapir <me@ass.af>",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^17.0.23",
+    "typescript": "^4.6.3"
+  }
+}
