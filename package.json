@@ -1,13 +1,6 @@
 {
   "name": "f3tw",
-  "version": "0.0.1",
   "description": "Featrue Flags For The Win",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "Assaf Sapir",
-  "license": "MIT",
   "workspaces": [
     "api"
   ]
