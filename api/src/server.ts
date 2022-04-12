@@ -1,5 +1,4 @@
 import * as express from "express";
-import { Router } from "express";
 import * as http from "http";
 import { HttpLogger } from "pino-http";
 import { DataSource } from "typeorm";
