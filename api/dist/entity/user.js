@@ -1,3 +1,4 @@
+"use strict";
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -7,31 +8,38 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, DeleteDateColumn, UpdateDateColumn, } from "typeorm";
+Object.defineProperty(exports, "__esModule", { value: true });
+const typeorm_1 = require("typeorm");
+const feature_1 = require("./feature");
 let User = class User {
 };
 __decorate([
-    PrimaryGeneratedColumn("uuid"),
+    (0, typeorm_1.PrimaryGeneratedColumn)("uuid"),
     __metadata("design:type", String)
 ], User.prototype, "id", void 0);
 __decorate([
-    Column({ nullable: false }),
+    (0, typeorm_1.Column)({ nullable: false }),
     __metadata("design:type", String)
 ], User.prototype, "email", void 0);
 __decorate([
-    CreateDateColumn({ name: "created_at", type: "timestamp with time zone" }),
+    (0, typeorm_1.ManyToMany)(() => feature_1.default, (feature) => feature.id),
+    (0, typeorm_1.JoinTable)({ name: "users_features" }),
+    __metadata("design:type", Array)
+], User.prototype, "features", void 0);
+__decorate([
+    (0, typeorm_1.CreateDateColumn)({ name: "created_at", type: "timestamp with time zone" }),
     __metadata("design:type", Date)
 ], User.prototype, "createdAt", void 0);
 __decorate([
-    UpdateDateColumn({ name: "updated_at", type: "timestamp with time zone" }),
+    (0, typeorm_1.UpdateDateColumn)({ name: "updated_at", type: "timestamp with time zone" }),
     __metadata("design:type", Date)
 ], User.prototype, "updatedAt", void 0);
 __decorate([
-    DeleteDateColumn({ name: "deleted_at", type: "timestamp with time zone" }),
+    (0, typeorm_1.DeleteDateColumn)({ name: "deleted_at", type: "timestamp with time zone" }),
     __metadata("design:type", Date)
 ], User.prototype, "deletedAt", void 0);
 User = __decorate([
-    Entity("users")
+    (0, typeorm_1.Entity)("users")
 ], User);
-export default User;
+exports.default = User;
 //# sourceMappingURL=user.js.map

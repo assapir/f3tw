@@ -1,6 +1,9 @@
-import { Table } from "typeorm";
-import { FeatureType } from "../entity/feature";
-const usersTable = new Table({
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.InitialDBSchema1649761114244 = void 0;
+const typeorm_1 = require("typeorm");
+const feature_1 = require("../entity/feature");
+const usersTable = new typeorm_1.Table({
     name: "users",
     columns: [
         {
@@ -33,7 +36,7 @@ const usersTable = new Table({
         },
     ],
 });
-const featuresTable = new Table({
+const featuresTable = new typeorm_1.Table({
     name: "features",
     columns: [
         {
@@ -52,8 +55,9 @@ const featuresTable = new Table({
             name: "type",
             type: "enum",
             isNullable: false,
-            default: FeatureType.TOGGLE,
-            enum: [FeatureType.TOGGLE, FeatureType.PERCENTAGE],
+            default: `'${feature_1.FeatureType.TOGGLE}'`,
+            enum: [feature_1.FeatureType.TOGGLE, feature_1.FeatureType.PERCENTAGE],
+            enumName: "feature_type",
         },
         {
             name: "created_at",
@@ -73,15 +77,14 @@ const featuresTable = new Table({
         },
     ],
 });
-export class InitialDBSchema1649761114244 {
+class InitialDBSchema1649761114244 {
     async up(queryRunner) {
-        await Promise.all([
-            queryRunner.createTable(usersTable, true, true, true),
-            queryRunner.createTable(featuresTable, true, true, true),
-        ]);
+        await queryRunner.createTable(usersTable, true, true, true);
+        await queryRunner.createTable(featuresTable, true, true, true);
     }
     async down(queryRunner) {
         queryRunner.dropTable(usersTable);
     }
 }
+exports.InitialDBSchema1649761114244 = InitialDBSchema1649761114244;
 //# sourceMappingURL=1649761114244-InitialDBSchema.js.map

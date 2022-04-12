@@ -14,6 +14,6 @@
 
 `GET /users/:user_id` -> `User` - Get a user.
 
-`GET /users/:user_id/features` -> `Array<UserFeature>` - Get a list of features enable for user with user_id.
+`GET /users/:user_id/features` -> `Array<Feature>` - Get a list of features enable for user with user_id.
 
 `POST /users` -> `User` - Create a new user.

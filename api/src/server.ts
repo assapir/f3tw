@@ -1,19 +1,22 @@
 import * as express from "express";
+import { Router } from "express";
 import * as http from "http";
 import { HttpLogger } from "pino-http";
+import { DataSource } from "typeorm";
+import Routing from "./router";
 
 export default class Server {
-  private _app: express.Express;
+  private _app: express.Application;
   private _logger: HttpLogger;
 
-  get app(): express.Express {
+  get app(): express.Application {
     return this._app;
   }
 
-  constructor(logger: HttpLogger) {
+  constructor(logger: HttpLogger, connection: DataSource) {
     this._logger = logger;
     this.configExpress();
-    this.configRouter();
+    this.configRouter(connection);
   }
 
   start(): http.Server {
@@ -24,11 +27,14 @@ export default class Server {
     });
   }
 
-  configRouter() {}
+  configRouter(connection: DataSource): void {
+    const router = new Routing(this._app, connection);
 
-  configExpress() {
+    this._app.use("/", router.routes);
+  }
+
+  configExpress(): void {
     this._app = express();
     this._app.use(this._logger);
-    this._app.use(express.json());
   }
 }
