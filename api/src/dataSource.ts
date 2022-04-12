@@ -10,7 +10,7 @@ const TestAppDataSource = new DataSource({
   database: "postgres",
   logging: true,
   entities: ["src/entity/*.{js,ts}"],
-  migrations: ["src/migration/*.{ts, ts}"],
+  migrations: ["src/migration/*.{ts, ts}"]
 });
 
 export const AppDataSource = new DataSource({
@@ -22,7 +22,7 @@ export const AppDataSource = new DataSource({
   database: process.env.DB_NAME,
   logging: false,
   entities: ["src/entity/*.{js,ts}"],
-  migrations: ["src/migration/*.{ts, ts}"],
+  migrations: ["src/migration/*.{ts, ts}"]
 });
 
 export default TestAppDataSource;

@@ -5,13 +5,13 @@ import {
   CreateDateColumn,
   UpdateDateColumn,
   DeleteDateColumn,
-  ManyToMany,
+  ManyToMany
 } from "typeorm";
 import User from "./user";
 
 export enum FeatureType {
   TOGGLE = "toggle",
-  PERCENTAGE = "percentage",
+  PERCENTAGE = "percentage"
 }
 
 @Entity("features")
@@ -26,7 +26,7 @@ export default class Feature {
     nullable: false,
     type: "enum",
     enum: FeatureType,
-    default: FeatureType.TOGGLE,
+    default: FeatureType.TOGGLE
   })
   type: FeatureType;
 

@@ -9,30 +9,30 @@ const usersTable = new Table({
       type: "uuid",
       isPrimary: true,
       isGenerated: true,
-      generationStrategy: "uuid",
+      generationStrategy: "uuid"
     },
     {
       name: "email",
       type: "varchar",
-      isNullable: false,
+      isNullable: false
     },
     {
       name: "created_at",
       type: "timestamp with time zone",
       isNullable: false,
-      default: "now()",
+      default: "now()"
     },
     {
       name: "updated_at",
       type: "timestamp with time zone",
       isNullable: false,
-      default: "now()",
+      default: "now()"
     },
     {
       name: "deleted_at",
-      type: "timestamp with time zone",
-    },
-  ],
+      type: "timestamp with time zone"
+    }
+  ]
 });
 
 const featuresTable = new Table({
@@ -43,12 +43,12 @@ const featuresTable = new Table({
       type: "uuid",
       isPrimary: true,
       isGenerated: true,
-      generationStrategy: "uuid",
+      generationStrategy: "uuid"
     },
     {
       name: "name",
       type: "varchar",
-      isNullable: false,
+      isNullable: false
     },
     {
       name: "type",
@@ -56,25 +56,25 @@ const featuresTable = new Table({
       isNullable: false,
       default: `'${FeatureType.TOGGLE}'`,
       enum: [FeatureType.TOGGLE, FeatureType.PERCENTAGE],
-      enumName: "feature_type",
+      enumName: "feature_type"
     },
     {
       name: "created_at",
       type: "timestamp with time zone",
       isNullable: false,
-      default: "now()",
+      default: "now()"
     },
     {
       name: "updated_at",
       type: "timestamp with time zone",
       isNullable: false,
-      default: "now()",
+      default: "now()"
     },
     {
       name: "deleted_at",
-      type: "timestamp with time zone",
-    },
-  ],
+      type: "timestamp with time zone"
+    }
+  ]
 });
 
 export class InitialDBSchema1649761114244 implements MigrationInterface {

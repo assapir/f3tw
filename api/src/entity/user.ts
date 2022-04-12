@@ -6,7 +6,7 @@ import {
   DeleteDateColumn,
   UpdateDateColumn,
   ManyToMany,
-  JoinTable,
+  JoinTable
 } from "typeorm";
 import Feature from "./feature";
 
