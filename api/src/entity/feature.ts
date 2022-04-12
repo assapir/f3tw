@@ -5,7 +5,9 @@ import {
   CreateDateColumn,
   UpdateDateColumn,
   DeleteDateColumn,
+  ManyToMany,
 } from "typeorm";
+import User from "./user";
 
 export enum FeatureType {
   TOGGLE = "toggle",
@@ -13,13 +15,11 @@ export enum FeatureType {
 }
 
 @Entity("features")
-export default class User {
+export default class Feature {
   @PrimaryGeneratedColumn("uuid")
   id: string;
 
-  @Column({
-    nullable: false,
-  })
+  @Column({ nullable: false })
   name: string;
 
   @Column({
@@ -29,6 +29,9 @@ export default class User {
     default: FeatureType.TOGGLE,
   })
   type: FeatureType;
+
+  @ManyToMany(() => User, (user) => user.id)
+  users: User[];
 
   @CreateDateColumn({ name: "created_at" })
   createdAt: Date;

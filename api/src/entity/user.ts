@@ -5,7 +5,10 @@ import {
   CreateDateColumn,
   DeleteDateColumn,
   UpdateDateColumn,
+  ManyToMany,
+  JoinTable,
 } from "typeorm";
+import Feature from "./feature";
 
 @Entity("users")
 export default class User {
@@ -14,6 +17,10 @@ export default class User {
 
   @Column({ nullable: false })
   email: string;
+
+  @ManyToMany(() => Feature, (feature) => feature.id)
+  @JoinTable({ name: "users_features" })
+  features: Feature[];
 
   @CreateDateColumn({ name: "created_at", type: "timestamp with time zone" })
   createdAt: Date;
