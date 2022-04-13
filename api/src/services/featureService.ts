@@ -6,4 +6,8 @@ export default class FeatureService extends BaseService<Feature> {
   constructor(repository: Repository<Feature>) {
     super(repository);
   }
+
+  getByName(name: string): Promise<Feature | null> {
+    return this._repository.findOneBy({ name });
+  }
 }

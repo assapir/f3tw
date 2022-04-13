@@ -4,8 +4,10 @@ import UserService from "../services/userService";
 import BaseController from "./baseController";
 
 export default class UserController extends BaseController<User> {
+  _service: UserService;
   constructor(app: Application, service: UserService) {
-    super(app, service);
+    super(app);
+    this._service = service;
   }
 
   configRouting(app: Application): void {

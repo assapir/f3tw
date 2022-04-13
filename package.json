@@ -1,6 +1,6 @@
 {
   "name": "f3tw",
-  "description": "Featrue Flags For The Win",
+  "description": "Features Flags For The Win",
   "workspaces": [
     "api"
   ]

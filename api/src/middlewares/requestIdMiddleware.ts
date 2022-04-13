@@ -7,5 +7,6 @@ export default function requestIdMiddleware(
   next: NextFunction
 ) {
   req.id = randomUUID();
+  res.setHeader("x-request-id", req.id);
   next();
 }

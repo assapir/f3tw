@@ -1,7 +1,7 @@
 {
   "name": "api",
   "version": "0.0.1",
-  "description": "API for f3TW",
+  "description": "API for F3TW",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
