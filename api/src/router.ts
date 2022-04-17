@@ -9,7 +9,6 @@ import FeatureService from "./services/featureService";
 import UserService from "./services/userService";
 
 export default class Routing {
-  // Do we need to hold the references?
   private userController: UserController;
   private featureController: FeatureController;
 

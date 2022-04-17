@@ -10,4 +10,8 @@ export default abstract class BaseService<T> {
   async getAll(): Promise<Array<T>> {
     return this._repository.find();
   }
+
+  create(entity: Partial<T>): Promise<T> {
+    return this._repository.save(entity as T);
+  }
 }

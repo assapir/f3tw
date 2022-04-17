@@ -3,7 +3,7 @@ import BaseService from "../services/baseService";
 
 export default abstract class BaseController<T> {
   protected _router: Router;
-  abstract _service: BaseService<T>;
+  protected abstract _service: BaseService<T>;
 
   constructor(app: Application) {
     this.configRouting(app);

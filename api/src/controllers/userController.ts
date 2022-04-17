@@ -4,7 +4,8 @@ import UserService from "../services/userService";
 import BaseController from "./baseController";
 
 export default class UserController extends BaseController<User> {
-  _service: UserService;
+  protected _service: UserService;
+
   constructor(app: Application, service: UserService) {
     super(app);
     this._service = service;
